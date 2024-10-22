@@ -1,0 +1,12 @@
+[package]
+name = "hello_cargo"
+version = "0.1.0"
+edition = "2021"
+authors = ["zero"]
+description = "It says hello"
+documentation = "/Docs.md"
+homepage = "www.google.com"
+repository = "local"
+license = "MIT"
+
+[dependencies]
