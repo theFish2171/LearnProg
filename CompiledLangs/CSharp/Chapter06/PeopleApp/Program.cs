@@ -2,13 +2,20 @@
 
 #region Implementing functionality using methods and operators
 
-Person harry = new()
-{
-  Name = "Harry",
-  Born = new(year: 2001, month: 3, day: 25,
-    hour: 0, minute: 0, second: 0, 
-    offset: TimeSpan.Zero)
-};
+Person harry =
+    new()
+    {
+        Name = "Harry",
+        Born = new(
+            year: 2001,
+            month: 3,
+            day: 25,
+            hour: 0,
+            minute: 0,
+            second: 0,
+            offset: TimeSpan.Zero
+        ),
+    };
 
 harry.WriteToConsole();
 
@@ -25,7 +32,7 @@ lamech.Marry(adah);
 
 if (lamech + zillah)
 {
-  WriteLine($"{lamech.Name} and {zillah.Name} successfully got married.");
+    WriteLine($"{lamech.Name} and {zillah.Name} successfully got married.");
 }
 
 lamech.OutputSpouses();
@@ -54,9 +61,12 @@ lamech.WriteChildrenToConsole();
 
 for (int i = 0; i < lamech.Children.Count; i++)
 {
-  WriteLine(format: "  {0}'s child #{1} is named \"{2}\".",
-    arg0: lamech.Name, arg1: i,
-    arg2: lamech.Children[i].Name);
+    WriteLine(
+        format: "  {0}'s child #{1} is named \"{2}\".",
+        arg0: lamech.Name,
+        arg1: i,
+        arg2: lamech.Children[i].Name
+    );
 }
 
 #endregion
@@ -72,14 +82,10 @@ lookupObject.Add(key: harry, value: "Delta");
 
 int key = 2; // Look up the value that has 2 as its key.
 
-WriteLine(format: "Key {0} has value: {1}",
-  arg0: key,
-  arg1: lookupObject[key]);
+WriteLine(format: "Key {0} has value: {1}", arg0: key, arg1: lookupObject[key]);
 
 // Look up the value that has harry as its key.
-WriteLine(format: "Key {0} has value: {1}",
-  arg0: harry,
-  arg1: lookupObject[harry]);
+WriteLine(format: "Key {0} has value: {1}", arg0: harry, arg1: lookupObject[harry]);
 
 #endregion
 
@@ -94,9 +100,7 @@ lookupIntString.Add(key: 4, value: "Delta");
 
 key = 3;
 
-WriteLine(format: "Key {0} has value: {1}",
-  arg0: key,
-  arg1: lookupIntString[key]);
+WriteLine(format: "Key {0} has value: {1}", arg0: key, arg1: lookupIntString[key]);
 
 #endregion
 
@@ -118,25 +122,23 @@ harry.Poke();
 
 Person?[] people =
 {
-  null,
-  new() { Name = "Simon" },
-  new() { Name = "Jenny" },
-  new() { Name = "Adam" },
-  new() { Name = null },
-  new() { Name = "Richard" }
+    null,
+    new() { Name = "Simon" },
+    new() { Name = "Jenny" },
+    new() { Name = "Adam" },
+    new() { Name = null },
+    new() { Name = "Richard" },
 };
 
 OutputPeopleNames(people, "Initial list of people:");
 
 Array.Sort(people);
 
-OutputPeopleNames(people,
-  "After sorting using Person's IComparable implementation:");
+OutputPeopleNames(people, "After sorting using Person's IComparable implementation:");
 
 Array.Sort(people, new PersonComparer());
 
-OutputPeopleNames(people,
-  "After sorting using PersonComparer's IComparer implementation:");
+OutputPeopleNames(people, "After sorting using PersonComparer's IComparer implementation:");
 
 #endregion
 
@@ -158,7 +160,7 @@ WriteLine($"p3: {p3}");
 WriteLine($"p3.Name: {p3.Name}");
 WriteLine($"p1 == p3: {p1 == p3}");
 
-// string is the only class reference type implemented to 
+// string is the only class reference type implemented to
 // act like a value type for equality.
 WriteLine($"p1.Name: {p1.Name}, p2.Name: {p2.Name}");
 WriteLine($"p1.Name == p2.Name: {p1.Name == p2.Name}");
@@ -184,12 +186,20 @@ WriteLine($"dv1 == dv5: {dv1 == dv5})");
 
 #region Inheriting from classes
 
-Employee john = new()
-{
-  Name = "John Jones",
-  Born = new(year: 1990, month: 7, day: 28,
-    hour: 0, minute: 0, second: 0, offset: TimeSpan.Zero)
-};
+Employee john =
+    new()
+    {
+        Name = "John Jones",
+        Born = new(
+            year: 1990,
+            month: 7,
+            day: 28,
+            hour: 0,
+            minute: 0,
+            second: 0,
+            offset: TimeSpan.Zero
+        ),
+    };
 
 john.WriteToConsole();
 
@@ -211,8 +221,7 @@ WriteLine(john.ToString());
 
 #region Understanding polymorphism
 
-Employee aliceInEmployee = new()
-  { Name = "Alice", EmployeeCode = "AA123" };
+Employee aliceInEmployee = new() { Name = "Alice", EmployeeCode = "AA123" };
 
 Person aliceInPerson = aliceInEmployee;
 aliceInEmployee.WriteToConsole();
@@ -226,11 +235,11 @@ WriteLine(aliceInPerson.ToString());
 
 if (aliceInPerson is Employee)
 {
-  WriteLine($"{nameof(aliceInPerson)} is an Employee.");
+    WriteLine($"{nameof(aliceInPerson)} is an Employee.");
 
-  Employee explicitAlice = (Employee)aliceInPerson;
+    Employee explicitAlice = (Employee)aliceInPerson;
 
-  // Safely do something with explicitAlice.
+    // Safely do something with explicitAlice.
 }
 
 #endregion
@@ -241,9 +250,9 @@ Employee? aliceAsEmployee = aliceInPerson as Employee;
 
 if (aliceAsEmployee is not null)
 {
-  WriteLine($"{nameof(aliceInPerson)} as an Employee.");
+    WriteLine($"{nameof(aliceInPerson)} as an Employee.");
 
-  // Safely do something with aliceAsEmployee.
+    // Safely do something with aliceAsEmployee.
 }
 
 #endregion
@@ -252,12 +261,12 @@ if (aliceAsEmployee is not null)
 
 try
 {
-  john.TimeTravel(when: new(1999, 12, 31));
-  john.TimeTravel(when: new(1950, 12, 25));
+    john.TimeTravel(when: new(1999, 12, 31));
+    john.TimeTravel(when: new(1950, 12, 25));
 }
 catch (PersonException ex)
 {
-  WriteLine(ex.Message);
+    WriteLine(ex.Message);
 }
 
 #endregion
@@ -267,25 +276,25 @@ catch (PersonException ex)
 string email1 = "pamela@test.com";
 string email2 = "ian&test.com";
 
-WriteLine("{0} is a valid e-mail address: {1}",
-  arg0: email1,
-  arg1: StringExtensions.IsValidEmail(email1));
+WriteLine(
+    "{0} is a valid e-mail address: {1}",
+    arg0: email1,
+    arg1: StringExtensions.IsValidEmail(email1)
+);
 
-WriteLine("{0} is a valid e-mail address: {1}",
-  arg0: email2,
-  arg1: StringExtensions.IsValidEmail(email2));
+WriteLine(
+    "{0} is a valid e-mail address: {1}",
+    arg0: email2,
+    arg1: StringExtensions.IsValidEmail(email2)
+);
 
 #endregion
 
 #region Using extension methods to reuse functionality
 
-WriteLine("{0} is a valid e-mail address: {1}",
-  arg0: email1,
-  arg1: email1.IsValidEmail());
+WriteLine("{0} is a valid e-mail address: {1}", arg0: email1, arg1: email1.IsValidEmail());
 
-WriteLine("{0} is a valid e-mail address: {1}",
-  arg0: email2,
-  arg1: email2.IsValidEmail());
+WriteLine("{0} is a valid e-mail address: {1}", arg0: email2, arg1: email2.IsValidEmail());
 
 #endregion
 
@@ -295,6 +304,7 @@ C1 c1 = new() { Name = "Bob" };
 c1.Name = "Bill";
 
 C2 c2 = new(Name: "Bob");
+
 //c2.Name = "Bill"; // CS8852: Init-only property.
 
 S1 s1 = new() { Name = "Bob" };

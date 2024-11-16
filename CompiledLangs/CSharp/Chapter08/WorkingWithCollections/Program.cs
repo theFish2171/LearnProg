@@ -1,6 +1,5 @@
 ﻿using System.Collections.Frozen; // To use FrozenDictionary<T, T>.
 using System.Collections.Immutable; // To use ImmutableDictionary<T, T>.
-
 // Define an alias for a dictionary with string key and string value.
 using StringDictionary = System.Collections.Generic.Dictionary<string, string>;
 
@@ -19,7 +18,7 @@ List<string> cities = new()
 
 /* Alternative syntax that passes an array
    of string values to AddRange method.
-List<string> cities = new(); 
+List<string> cities = new();
 cities.AddRange(new[] { "London", "Paris", "Milan" }); */
 
 OutputCollection("Initial list", cities);
@@ -72,7 +71,7 @@ OutputCollection("Dictionary values", keywords.Values);
 WriteLine("Keywords and their definitions:");
 foreach (KeyValuePair<string, string> item in keywords)
 {
-  WriteLine($"  {item.Key}: {item.Value}");
+    WriteLine($"  {item.Key}: {item.Value}");
 }
 
 // Look up a value using a key.
@@ -85,11 +84,10 @@ WriteLine($"The definition of {key} is {keywords[key]}.");
 
 HashSet<string> names = new();
 
-foreach (string name in
-  new[] { "Adam", "Barry", "Charlie", "Barry" })
+foreach (string name in new[] { "Adam", "Barry", "Charlie", "Barry" })
 {
-  bool added = names.Add(name);
-  WriteLine($"{name} was added: {added}.");
+    bool added = names.Add(name);
+    WriteLine($"{name} was added: {added}.");
 }
 
 WriteLine($"names: {string.Join(',', names)}");
@@ -150,22 +148,20 @@ OutputPQ("Current queue for vaccination", vaccine.UnorderedItems);
 //UseDictionary(keywords.AsReadOnly());
 //UseDictionary(keywords.ToImmutableDictionary());
 
-ImmutableDictionary<string, string> immutableKeywords = 
-  keywords.ToImmutableDictionary();
+ImmutableDictionary<string, string> immutableKeywords = keywords.ToImmutableDictionary();
 
 // Call the Add method with a return value.
-ImmutableDictionary<string, string> newDictionary = 
-  immutableKeywords.Add(
+ImmutableDictionary<string, string> newDictionary = immutableKeywords.Add(
     key: Guid.NewGuid().ToString(),
-    value: Guid.NewGuid().ToString());
+    value: Guid.NewGuid().ToString()
+);
 
 OutputCollection("Immutable keywords dictionary", immutableKeywords);
 OutputCollection("New keywords dictionary", newDictionary);
 
 // Creating a frozen collection has an overhead to perform the
 // sometimes complex optimizations.
-FrozenDictionary<string, string> frozenKeywords =
-  keywords.ToFrozenDictionary();
+FrozenDictionary<string, string> frozenKeywords = keywords.ToFrozenDictionary();
 
 OutputCollection("Frozen keywords dictionary", frozenKeywords);
 

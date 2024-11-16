@@ -1,7 +1,6 @@
 ﻿using System.Globalization; // To use CultureInfo.
 
 OutputEncoding = System.Text.Encoding.UTF8; // Enable Euro symbol.
-
 #region Getting the length of a string
 
 string city = "London";
@@ -25,7 +24,7 @@ WriteLine($"There are {citiesArray.Length} items in the array:");
 
 foreach (string item in citiesArray)
 {
-  WriteLine($"  {item}");
+    WriteLine($"  {item}");
 }
 
 #endregion
@@ -36,11 +35,9 @@ string fullName = "Alan Shore";
 
 int indexOfTheSpace = fullName.IndexOf(' ');
 
-string firstName = fullName.Substring(
-  startIndex: 0, length: indexOfTheSpace);
+string firstName = fullName.Substring(startIndex: 0, length: indexOfTheSpace);
 
-string lastName = fullName.Substring(
-  startIndex: indexOfTheSpace + 1);
+string lastName = fullName.Substring(startIndex: indexOfTheSpace + 1);
 
 WriteLine($"Original: {fullName}");
 WriteLine($"Swapped: {lastName}, {firstName}");
@@ -51,9 +48,11 @@ WriteLine($"Swapped: {lastName}, {firstName}");
 
 string company = "Microsoft";
 WriteLine($"Text: {company}");
-WriteLine("Starts with M: {0}, contains an N: {1}", 
-  arg0: company.StartsWith("M"),
-  arg1: company.Contains("N"));
+WriteLine(
+    "Starts with M: {0}, contains an N: {1}",
+    arg0: company.StartsWith("M"),
+    arg1: company.Contains("N")
+);
 
 #endregion
 
@@ -68,12 +67,12 @@ WriteLine($"text1: {text1}, text2: {text2}");
 
 WriteLine("Compare: {0}.", string.Compare(text1, text2));
 
-WriteLine("Compare (ignoreCase): {0}.",
-  string.Compare(text1, text2, ignoreCase: true));
+WriteLine("Compare (ignoreCase): {0}.", string.Compare(text1, text2, ignoreCase: true));
 
-WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
-  string.Compare(text1, text2, 
-  StringComparison.InvariantCultureIgnoreCase));
+WriteLine(
+    "Compare (InvariantCultureIgnoreCase): {0}.",
+    string.Compare(text1, text2, StringComparison.InvariantCultureIgnoreCase)
+);
 
 // German string comparisons
 
@@ -84,16 +83,25 @@ text2 = "Straße";
 
 WriteLine($"text1: {text1}, text2: {text2}");
 
-WriteLine("Compare: {0}.", string.Compare(text1, text2, 
-  CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace));
+WriteLine(
+    "Compare: {0}.",
+    string.Compare(text1, text2, CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace)
+);
 
-WriteLine("Compare (IgnoreCase, IgnoreNonSpace): {0}.",
-  string.Compare(text1, text2, CultureInfo.CurrentCulture, 
-  CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase));
+WriteLine(
+    "Compare (IgnoreCase, IgnoreNonSpace): {0}.",
+    string.Compare(
+        text1,
+        text2,
+        CultureInfo.CurrentCulture,
+        CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase
+    )
+);
 
-WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
-  string.Compare(text1, text2,
-  StringComparison.InvariantCultureIgnoreCase));
+WriteLine(
+    "Compare (InvariantCultureIgnoreCase): {0}.",
+    string.Compare(text1, text2, StringComparison.InvariantCultureIgnoreCase)
+);
 
 #endregion
 
@@ -109,7 +117,13 @@ DateTime when = DateTime.Today;
 //CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
 WriteLine($"Interpolated:  {fruit} cost {price:C} on {when:dddd}.");
-WriteLine(string.Format("string.Format: {0} cost {1:C} on {2:dddd}.",
-  arg0: fruit, arg1: price, arg2: when));
+WriteLine(
+    string.Format(
+        "string.Format: {0} cost {1:C} on {2:dddd}.",
+        arg0: fruit,
+        arg1: price,
+        arg2: when
+    )
+);
 
 #endregion

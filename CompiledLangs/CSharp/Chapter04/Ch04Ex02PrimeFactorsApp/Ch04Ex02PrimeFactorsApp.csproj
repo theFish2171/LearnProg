@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Ch04Ex02PrimeFactorsLib\Ch04Ex02PrimeFactorsLib.csproj" />
+		<ProjectReference Include="..\Ch04Ex02PrimeFactorsLib\Ch04Ex02PrimeFactorsLib.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

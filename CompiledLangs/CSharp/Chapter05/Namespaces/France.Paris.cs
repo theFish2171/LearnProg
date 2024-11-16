@@ -1,6 +1,4 @@
 ﻿namespace France
 {
-  public class Paris
-  {
-  }
+    public class Paris { }
 }

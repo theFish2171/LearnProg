@@ -12,5 +12,5 @@ ReadLine(); // Wait for user to press Enter.
 // Functions in Program.cs must be at the bottom of the file.
 double Add(double a, double b)
 {
-  return a + b; // deliberate bug!
+    return a + b; // deliberate bug!
 }

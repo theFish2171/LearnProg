@@ -6,14 +6,14 @@ string n2 = ReadLine()!;
 
 try
 {
-  byte a = byte.Parse(n1);
-  byte b = byte.Parse(n2);
+    byte a = byte.Parse(n1);
+    byte b = byte.Parse(n2);
 
-  int answer = a / b;
+    int answer = a / b;
 
-  WriteLine($"{a} divided by {b} is {answer}");
+    WriteLine($"{a} divided by {b} is {answer}");
 }
 catch (Exception ex)
 {
-  WriteLine($"{ex.GetType().Name}: {ex.Message}");
+    WriteLine($"{ex.GetType().Name}: {ex.Message}");
 }

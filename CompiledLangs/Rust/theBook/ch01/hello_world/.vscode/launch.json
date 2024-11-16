@@ -9,11 +9,7 @@
             "request": "launch",
             "name": "Debug executable 'hello_world'",
             "cargo": {
-                "args": [
-                    "build",
-                    "--bin=hello_world",
-                    "--package=hello_world"
-                ],
+                "args": ["build", "--bin=hello_world", "--package=hello_world"],
                 "filter": {
                     "name": "hello_world",
                     "kind": "bin"

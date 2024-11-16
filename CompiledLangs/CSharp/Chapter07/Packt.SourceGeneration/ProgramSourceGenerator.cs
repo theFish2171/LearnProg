@@ -1,17 +1,19 @@
 ﻿// To use [Generator], ISourceGenerator, and so on.
-using Microsoft.CodeAnalysis; 
+using Microsoft.CodeAnalysis;
 
 namespace Packt.Shared;
 
 [Generator]
 public class ProgramSourceGenerator : ISourceGenerator
 {
-  public void Execute(GeneratorExecutionContext execContext)
-  {
-    IMethodSymbol? mainMethod = execContext.Compilation
-      .GetEntryPoint(execContext.CancellationToken);
-    
-    string sourceCode = $@"// Source-generated class.
+    public void Execute(GeneratorExecutionContext execContext)
+    {
+        IMethodSymbol? mainMethod = execContext.Compilation.GetEntryPoint(
+            execContext.CancellationToken
+        );
+
+        string sourceCode =
+            $@"// Source-generated class.
 #nullable enable
 
 using System.Globalization; // To use CultureInfo.
@@ -51,12 +53,12 @@ partial class {mainMethod?.ContainingType.Name}
 }}
 ";
 
-    string fileName = $"{mainMethod?.ContainingType.Name}.Methods.g.cs";
-    execContext.AddSource(fileName, sourceCode);
-  }
+        string fileName = $"{mainMethod?.ContainingType.Name}.Methods.g.cs";
+        execContext.AddSource(fileName, sourceCode);
+    }
 
-  public void Initialize(GeneratorInitializationContext initContext)
-  {
-    // This source generator does not need any initialization.
-  }
+    public void Initialize(GeneratorInitializationContext initContext)
+    {
+        // This source generator does not need any initialization.
+    }
 }

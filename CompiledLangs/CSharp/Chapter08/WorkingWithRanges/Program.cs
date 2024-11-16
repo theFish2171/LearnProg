@@ -7,13 +7,9 @@ int lengthOfFirst = name.IndexOf(' ');
 int lengthOfLast = name.Length - lengthOfFirst - 1;
 
 // Using Substring.
-string firstName = name.Substring(
-  startIndex: 0,
-  length: lengthOfFirst);
+string firstName = name.Substring(startIndex: 0, length: lengthOfFirst);
 
-string lastName = name.Substring(
-  startIndex: name.Length - lengthOfLast,
-  length: lengthOfLast);
+string lastName = name.Substring(startIndex: name.Length - lengthOfLast, length: lengthOfLast);
 
 WriteLine($"First: {firstName}, Last: {lastName}");
 

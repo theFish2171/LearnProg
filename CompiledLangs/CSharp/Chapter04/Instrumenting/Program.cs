@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics; // To use Debug and Trace.
 using Microsoft.Extensions.Configuration; // To use ConfigurationBuilder.
 
-string logPath = Path.Combine(Environment.GetFolderPath(
-    Environment.SpecialFolder.DesktopDirectory), "log.txt");
+string logPath = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
+    "log.txt"
+);
 
 Console.WriteLine($"Writing to: {logPath}");
 
@@ -21,8 +23,7 @@ Trace.WriteLine("Trace says, I am watching!");
 
 string settingsFile = "appsettings.json";
 
-string settingsPath = Path.Combine(
-  Directory.GetCurrentDirectory(), settingsFile);
+string settingsPath = Path.Combine(Directory.GetCurrentDirectory(), settingsFile);
 
 Console.WriteLine("Processing: {0}", settingsPath);
 
@@ -36,14 +37,12 @@ builder.SetBasePath(Directory.GetCurrentDirectory());
 
 // Add the settings file to the processed configuration and make it
 // mandatory so an exception will be thrown if the file is not found.
-builder.AddJsonFile(settingsFile,
-  optional: false, reloadOnChange: true);
+builder.AddJsonFile(settingsFile, optional: false, reloadOnChange: true);
 
 IConfigurationRoot configuration = builder.Build();
 
-TraceSwitch ts = new(
-  displayName: "PacktSwitch",
-  description: "This switch is set via a JSON config.");
+TraceSwitch ts =
+    new(displayName: "PacktSwitch", description: "This switch is set via a JSON config.");
 
 configuration.GetSection("PacktSwitch").Bind(ts);
 

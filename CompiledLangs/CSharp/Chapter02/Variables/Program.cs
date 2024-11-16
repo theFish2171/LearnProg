@@ -1,5 +1,4 @@
 ﻿using System.Xml; // To use XmlDocument.
-
 #region Storing any type of object
 
 object height = 1.88; // Storing a double in an object.
@@ -44,7 +43,6 @@ var price = 4.99M; // in pounds sterling.
 var fruit = "Apples"; // string values use double-quotes.
 var letter = 'Z'; // char values use single-quotes.
 var happy = true; // Booleans can only be true or false.
-
 #endregion
 
 #region Inferring the type of a local variable

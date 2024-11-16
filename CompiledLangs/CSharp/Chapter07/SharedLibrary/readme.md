@@ -2,12 +2,13 @@
 
 # About
 
-This is a shared library that readers build in the book, 
+This is a shared library that readers build in the book,
 *C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals*.
 
 ## How to Use
 
 The static class extends the string type with three extenstion methods:
+
 - `IsValidHex()`
 - `IsValidXmlTag()`
 - `IsValidPassword()`

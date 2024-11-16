@@ -2,36 +2,24 @@
 
 public abstract class Shape
 {
-  // fields
-  protected double height;
-  protected double width;
+    // fields
+    protected double height;
+    protected double width;
 
-  // properties
-  public virtual double Height
-  {
-    get
+    // properties
+    public virtual double Height
     {
-      return height;
+        get { return height; }
+        set { height = value; }
     }
-    set
-    {
-      height = value;
-    }
-  }
 
-  public virtual double Width
-  {
-    get
+    public virtual double Width
     {
-      return width;
+        get { return width; }
+        set { width = value; }
     }
-    set
-    {
-      width = value;
-    }
-  }
 
-  // Area must be implemented by derived classes
-  // as a read-only property
-  public abstract double Area { get; }
+    // Area must be implemented by derived classes
+    // as a read-only property
+    public abstract double Area { get; }
 }

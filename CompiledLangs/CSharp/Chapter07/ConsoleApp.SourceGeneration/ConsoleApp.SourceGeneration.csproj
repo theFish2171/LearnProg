@@ -6,7 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <!--For use with Visual Studio Code and command-line tools-->
+    <!--For
+    use with Visual Studio Code and command-line tools-->
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
@@ -15,9 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include=
-      "..\Packt.SourceGeneration\Packt.SourceGeneration.csproj"
+    <ProjectReference Include="..\Packt.SourceGeneration\Packt.SourceGeneration.csproj"
       OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
-  
+
 </Project>

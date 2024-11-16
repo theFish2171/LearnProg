@@ -31,10 +31,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="packt-csdotnet-sharedlibrary.png" 
-          PackagePath="\" Pack="true" />
+    <None Include="packt-csdotnet-sharedlibrary.png"
+      PackagePath="\" Pack="true" />
     <None Include="readme.md"
-          PackagePath="\" Pack="true" />
+      PackagePath="\" Pack="true" />
   </ItemGroup>
 
 </Project>

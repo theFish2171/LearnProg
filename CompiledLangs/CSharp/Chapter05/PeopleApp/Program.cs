@@ -1,5 +1,4 @@
 ﻿using Packt.Shared; // To use Person.
-
 using Fruit = (string Name, int Number); // Aliasing a tuple type.
 
 ConfigureConsole(); // Sets current culture to US English.
@@ -24,37 +23,43 @@ WriteLine(bob); // Implicit call to ToString().
 bob.Name = "Bob Smith";
 
 bob.Born = new DateTimeOffset(
-  year: 1965, month: 12, day: 22,
-  hour: 16, minute: 28, second: 0,
-  offset: TimeSpan.FromHours(-5)); // US Eastern Standard Time.
+    year: 1965,
+    month: 12,
+    day: 22,
+    hour: 16,
+    minute: 28,
+    second: 0,
+    offset: TimeSpan.FromHours(-5)
+); // US Eastern Standard Time.
 
-WriteLine(format: "{0} was born on {1:D}.", // Long date.
-  arg0: bob.Name, arg1: bob.Born);
+WriteLine(
+    format: "{0} was born on {1:D}.", // Long date.
+    arg0: bob.Name,
+    arg1: bob.Born
+);
 
 #endregion
 
 #region Setting field values using object initializer syntax
 
-Person alice = new()
-{
-  Name = "Alice Jones",
-  Born = new(1998, 3, 7, 16, 28, 0, TimeSpan.Zero)
-};
+Person alice = new() { Name = "Alice Jones", Born = new(1998, 3, 7, 16, 28, 0, TimeSpan.Zero) };
 
-WriteLine(format: "{0} was born on {1:d}.", // Short date.
-  arg0: alice.Name, arg1: alice.Born);
+WriteLine(
+    format: "{0} was born on {1:d}.", // Short date.
+    arg0: alice.Name,
+    arg1: alice.Born
+);
 
 #endregion
 
 #region Storing a value using an enum type
 
 // Setting a single enum value works.
-bob.FavoriteAncientWonder =
-  WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
+bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
 
 /*
 // Setting multiple enum values throws an exception.
-bob.FavoriteAncientWonder = 
+bob.FavoriteAncientWonder =
   WondersOfTheAncientWorld.StatueOfZeusAtOlympia |
   WondersOfTheAncientWorld.GreatPyramidOfGiza;
 
@@ -63,18 +68,19 @@ bob.FavoriteAncientWonder = (WondersOfTheAncientWorld)128;
 */
 
 WriteLine(
-  format: "{0}'s favorite wonder is {1}. Its integer is {2}.",
-  arg0: bob.Name,
-  arg1: bob.FavoriteAncientWonder,
-  arg2: (int)bob.FavoriteAncientWonder);
+    format: "{0}'s favorite wonder is {1}. Its integer is {2}.",
+    arg0: bob.Name,
+    arg1: bob.FavoriteAncientWonder,
+    arg2: (int)bob.FavoriteAncientWonder
+);
 
 #endregion
 
 #region Storing multiple values using an enum type
 
 bob.BucketList =
-  WondersOfTheAncientWorld.HangingGardensOfBabylon
-  | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
+    WondersOfTheAncientWorld.HangingGardensOfBabylon
+    | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
 // bob.BucketList = (WondersOfTheAncientWorld)18;
 
@@ -99,7 +105,7 @@ WriteLine($"{bob.Name} has {bob.Children.Count} children:");
 
 for (int childIndex = 0; childIndex < bob.Children.Count; childIndex++)
 {
-  WriteLine($"> {bob.Children[childIndex].Name}");
+    WriteLine($"> {bob.Children[childIndex].Name}");
 }
 
 /*
@@ -119,16 +125,20 @@ BankAccount.InterestRate = 0.012M; // Store a shared value in static field.
 BankAccount jonesAccount = new();
 jonesAccount.AccountName = "Mrs. Jones";
 jonesAccount.Balance = 2400;
-WriteLine(format: "{0} earned {1:C} interest.",
-  arg0: jonesAccount.AccountName,
-  arg1: jonesAccount.Balance * BankAccount.InterestRate);
+WriteLine(
+    format: "{0} earned {1:C} interest.",
+    arg0: jonesAccount.AccountName,
+    arg1: jonesAccount.Balance * BankAccount.InterestRate
+);
 
 BankAccount gerrierAccount = new();
 gerrierAccount.AccountName = "Ms. Gerrier";
 gerrierAccount.Balance = 98;
-WriteLine(format: "{0} earned {1:C} interest.",
-  arg0: gerrierAccount.AccountName,
-  arg1: gerrierAccount.Balance * BankAccount.InterestRate);
+WriteLine(
+    format: "{0} earned {1:C} interest.",
+    arg0: gerrierAccount.AccountName,
+    arg1: gerrierAccount.Balance * BankAccount.InterestRate
+);
 
 #endregion
 
@@ -148,7 +158,7 @@ WriteLine($"{bob.Name} was born on {bob.HomePlanet}.");
 
 #region Requiring fields to be set during instantiation
 
-/* 
+/*
 // Instantiate a book using object initializer syntax.
 Book book = new()
 {
@@ -157,15 +167,23 @@ Book book = new()
 };
 */
 
-Book book = new(isbn: "978-1803237800",
-  title: "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals")
-{
-  Author = "Mark J. Price",
-  PageCount = 821
-};
+Book book =
+    new(
+        isbn: "978-1803237800",
+        title: "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals"
+    )
+    {
+        Author = "Mark J. Price",
+        PageCount = 821,
+    };
 
-WriteLine("{0}: {1} written by {2} has {3:N0} pages.",
-  book.Isbn, book.Title, book.Author, book.PageCount);
+WriteLine(
+    "{0}: {1} written by {2} has {3:N0} pages.",
+    book.Isbn,
+    book.Title,
+    book.Author,
+    book.PageCount
+);
 
 #endregion
 
@@ -173,11 +191,12 @@ WriteLine("{0}: {1} written by {2} has {3:N0} pages.",
 
 Person blankPerson = new();
 
-WriteLine(format:
-  "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
-  arg0: blankPerson.Name,
-  arg1: blankPerson.HomePlanet,
-  arg2: blankPerson.Instantiated);
+WriteLine(
+    format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+    arg0: blankPerson.Name,
+    arg1: blankPerson.HomePlanet,
+    arg2: blankPerson.Instantiated
+);
 
 #endregion
 
@@ -185,11 +204,12 @@ WriteLine(format:
 
 Person gunny = new(initialName: "Gunny", homePlanet: "Mars");
 
-WriteLine(format:
-  "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
-  arg0: gunny.Name,
-  arg1: gunny.HomePlanet,
-  arg2: gunny.Instantiated);
+WriteLine(
+    format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+    arg0: gunny.Name,
+    arg1: gunny.HomePlanet,
+    arg2: gunny.Instantiated
+);
 
 #endregion
 
@@ -295,22 +315,18 @@ int number = 5;
 
 try
 {
-  WriteLine($"{number}! is {Person.Factorial(number)}");
+    WriteLine($"{number}! is {Person.Factorial(number)}");
 }
 catch (Exception ex)
 {
-  WriteLine($"{ex.GetType()} says: {ex.Message} number was {number}.");
+    WriteLine($"{ex.GetType()} says: {ex.Message} number was {number}.");
 }
 
 #endregion
 
 #region Defining read-only properties
 
-Person sam = new()
-{
-  Name = "Sam",
-  Born = new(1969, 6, 25, 0, 0, 0, TimeSpan.Zero)
-};
+Person sam = new() { Name = "Sam", Born = new(1969, 6, 25, 0, 0, 0, TimeSpan.Zero) };
 
 WriteLine(sam.Origin);
 WriteLine(sam.Greeting);
@@ -327,30 +343,26 @@ string color = "Black";
 
 try
 {
-  sam.FavoritePrimaryColor = color;
-  WriteLine($"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
+    sam.FavoritePrimaryColor = color;
+    WriteLine($"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
 }
 catch (Exception ex)
 {
-  WriteLine("Tried to set {0} to '{1}': {2}",
-    nameof(sam.FavoritePrimaryColor), color, ex.Message);
+    WriteLine(
+        "Tried to set {0} to '{1}': {2}",
+        nameof(sam.FavoritePrimaryColor),
+        color,
+        ex.Message
+    );
 }
 
 #endregion
 
 #region Defining indexers
 
-sam.Children.Add(new()
-{
-  Name = "Charlie",
-  Born = new(2010, 3, 18, 0, 0, 0, TimeSpan.Zero)
-});
+sam.Children.Add(new() { Name = "Charlie", Born = new(2010, 3, 18, 0, 0, 0, TimeSpan.Zero) });
 
-sam.Children.Add(new()
-{
-  Name = "Ella",
-  Born = new(2020, 12, 24, 0, 0, 0, TimeSpan.Zero)
-});
+sam.Children.Add(new() { Name = "Ella", Born = new(2020, 12, 24, 0, 0, 0, TimeSpan.Zero) });
 
 // Get using Children list.
 WriteLine($"Sam's first child is {sam.Children[0].Name}.");
@@ -368,63 +380,59 @@ WriteLine($"Sam's child named Ella is {sam["Ella"].Age} years old.");
 #region Pattern matching flight passengers
 
 // An array containing a mix of passenger types.
-Passenger[] passengers = {
-  new FirstClassPassenger { AirMiles = 1_419, Name = "Suman" },
-  new FirstClassPassenger { AirMiles = 16_562, Name = "Lucy" },
-  new BusinessClassPassenger { Name = "Janice" },
-  new CoachClassPassenger { CarryOnKG = 25.7, Name = "Dave" },
-  new CoachClassPassenger { CarryOnKG = 0, Name = "Amit" },
+Passenger[] passengers =
+{
+    new FirstClassPassenger { AirMiles = 1_419, Name = "Suman" },
+    new FirstClassPassenger { AirMiles = 16_562, Name = "Lucy" },
+    new BusinessClassPassenger { Name = "Janice" },
+    new CoachClassPassenger { CarryOnKG = 25.7, Name = "Dave" },
+    new CoachClassPassenger { CarryOnKG = 0, Name = "Amit" },
 };
 
 foreach (Passenger passenger in passengers)
 {
-  decimal flightCost = passenger switch
-  {
-    /* C# 8 syntax
-    FirstClassPassenger p when p.AirMiles > 35_000 => 1_500M,
-    FirstClassPassenger p when p.AirMiles > 15_000 => 1_750M,
-    FirstClassPassenger _                          => 2_000M,*/
-
-    // C# 9 or later syntax
-    FirstClassPassenger p => p.AirMiles switch
+    decimal flightCost = passenger switch
     {
-      > 35_000 => 1_500M,
-      > 15_000 => 1_750M,
-      _ => 2_000M
-    },
-    BusinessClassPassenger _ => 1_000M,
-    CoachClassPassenger p when p.CarryOnKG < 10.0 => 500M,
-    CoachClassPassenger _ => 650M,
-    _ => 800M
-  };
-  WriteLine($"Flight costs {flightCost:C} for {passenger}");
+        /* C# 8 syntax
+        FirstClassPassenger p when p.AirMiles > 35_000 => 1_500M,
+        FirstClassPassenger p when p.AirMiles > 15_000 => 1_750M,
+        FirstClassPassenger _                          => 2_000M,*/
+
+        // C# 9 or later syntax
+        FirstClassPassenger p => p.AirMiles switch
+        {
+            > 35_000 => 1_500M,
+            > 15_000 => 1_750M,
+            _ => 2_000M,
+        },
+        BusinessClassPassenger _ => 1_000M,
+        CoachClassPassenger p when p.CarryOnKG < 10.0 => 500M,
+        CoachClassPassenger _ => 650M,
+        _ => 800M,
+    };
+    WriteLine($"Flight costs {flightCost:C} for {passenger}");
 }
 
 #endregion
 
 #region Init-only properties
 
-ImmutablePerson jeff = new()
-{
-  FirstName = "Jeff",
-  LastName = "Winger"
-};
+ImmutablePerson jeff = new() { FirstName = "Jeff", LastName = "Winger" };
 //jeff.FirstName = "Geoff";
 
 #endregion
 
 #region Defining record types
 
-ImmutableVehicle car = new()
-{
-  Brand = "Mazda MX-5 RF",
-  Color = "Soul Red Crystal Metallic",
-  Wheels = 4
-};
+ImmutableVehicle car =
+    new()
+    {
+        Brand = "Mazda MX-5 RF",
+        Color = "Soul Red Crystal Metallic",
+        Wheels = 4,
+    };
 
-ImmutableVehicle repaintedCar = car
-  with
-{ Color = "Polymetal Grey Metallic" };
+ImmutableVehicle repaintedCar = car with { Color = "Polymetal Grey Metallic" };
 
 WriteLine($"Original car color was {car.Color}.");
 WriteLine($"New car color is {repaintedCar.Color}.");

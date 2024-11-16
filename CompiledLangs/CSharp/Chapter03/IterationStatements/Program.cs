@@ -3,8 +3,8 @@
 int x = 0;
 while (x < 10)
 {
-  WriteLine(x);
-  x++;
+    WriteLine(x);
+    x++;
 }
 
 #endregion
@@ -18,20 +18,22 @@ int attempts = 0;
 
 do
 {
-  Write("Enter your password: ");
-  password = ReadLine();
-  attempts++;
-}
-while ((password != actualPassword) & (attempts < maximumAttempts));
+    Write("Enter your password: ");
+    password = ReadLine();
+    attempts++;
+} while ((password != actualPassword) & (attempts < maximumAttempts));
 
 if (password == actualPassword)
 {
-  WriteLine("Correct!");
+    WriteLine("Correct!");
 }
 else
 {
-  WriteLine("You have used {0} attempts! The password was {1}.",
-    arg0: maximumAttempts, arg1: actualPassword);
+    WriteLine(
+        "You have used {0} attempts! The password was {1}.",
+        arg0: maximumAttempts,
+        arg1: actualPassword
+    );
 }
 
 #endregion
@@ -40,12 +42,12 @@ else
 
 for (int y = 1; y <= 10; y++)
 {
-  WriteLine(y);
+    WriteLine(y);
 }
 
 for (int y = 0; y <= 10; y += 3)
 {
-  WriteLine(y);
+    WriteLine(y);
 }
 
 #endregion
@@ -56,8 +58,7 @@ string[] names = { "Adam", "Barry", "Charlie" };
 
 foreach (string name in names)
 {
-  WriteLine($"{name} has {name.Length} characters.");
+    WriteLine($"{name} has {name.Length} characters.");
 }
 
 #endregion
-

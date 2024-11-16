@@ -1,6 +1,7 @@
 ﻿using Packt.Shared; // To use Address.
 
 int thisCannotBeNull = 4;
+
 //thisCannotBeNull = null; // CS0037 compiler error!
 WriteLine(thisCannotBeNull);
 
@@ -22,16 +23,17 @@ WriteLine(thisCouldAlsoBeNull);
 string firstName; // Allows null but gives warning when potentially null.
 string? lastName; // Allows null and does not give warning if null.
 
-Address address = new(city: "London")
-{
-  Building = null,
-  Street = null!, // null-forgiving operator.
-  Region = "UK"
-};
+Address address =
+    new(city: "London")
+    {
+        Building = null,
+        Street = null!, // null-forgiving operator.
+        Region = "UK",
+    };
 
 WriteLine(address.Building?.Length);
 
 if (address.Street is not null)
 {
-  WriteLine(address.Street.Length);
+    WriteLine(address.Street.Length);
 }

@@ -1,6 +1,4 @@
 ﻿namespace Texas
 {
-  public class Paris
-  {
-  }
+    public class Paris { }
 }

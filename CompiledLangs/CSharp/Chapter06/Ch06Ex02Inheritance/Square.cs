@@ -2,25 +2,26 @@
 
 public class Square : Rectangle
 {
-  public Square() { }
+    public Square() { }
 
-  public Square(double width) : base(height: width, width: width) { }
+    public Square(double width)
+        : base(height: width, width: width) { }
 
-  public override double Height
-  {
-    set
+    public override double Height
     {
-      height = value;
-      width = value;
+        set
+        {
+            height = value;
+            width = value;
+        }
     }
-  }
 
-  public override double Width
-  {
-    set
+    public override double Width
     {
-      height = value;
-      width = value;
+        set
+        {
+            height = value;
+            width = value;
+        }
     }
-  }
 }
